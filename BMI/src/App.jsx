@@ -28,7 +28,7 @@ const App = () => {
               Calculate BMI
             </button>
           </div>
-          <div>
+          <div className="footer">
             <h4>Your BMI is : 20 </h4>
             <p> Status : Over Weight</p>
           </div>
