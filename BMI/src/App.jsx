@@ -3,19 +3,27 @@ const App = () => {
     <>
       <div className="Container">
         <div className="Section-1">
-          <img src="" alt="" />
+          <img className="bg-img" src="./src/assets/bmi.png" alt="" />
         </div>
         <div className="section-2">
           <h1>BMI CALCULATOR</h1>
           <div className="height-box">
-            <label htmlFor="height">Height (cm)</label>
-            <input type="text" id="height" />
+            <div className="box-1" >
+              <label  htmlFor="height">Height (cm) :</label>
+            </div>
+            <div>
+              <input placeholder="Enter your Height..." type="text" id="height" />
+            </div>
           </div>
           <div className="weight-box">
-            <label htmlFor="weight">Weight (kg)</label>
-            <input type="text" id="weight" />
+            <div>
+              <label className="box-2"  htmlFor="weight">Weight (kg) : </label>
+            </div>
+            <div>
+              <input placeholder="Enter your Weight..."  type="text" id="weight" />
+            </div>
           </div>
-          <div>
+          <div className="btn">
             <button>
               Calculate BMI
             </button>
