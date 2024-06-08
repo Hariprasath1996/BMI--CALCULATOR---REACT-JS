@@ -33,11 +33,13 @@ const App = () => {
   return (
     <>
       <div className="Container">
+
         <div className="Section-1">
           <img className="bg-img" src="./src/assets/bmi.png" alt="" />
         </div>
         <div className="section-2">
           <h1>BMI CALCULATOR</h1>
+          <p className="error">Please Enter Valid Numeric Value height and Weight.</p>
           <div className="height-box">
             <div className="box-1" >
               <label htmlFor="height">Height (cm) :</label>
