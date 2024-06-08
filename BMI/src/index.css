@@ -93,6 +93,7 @@ label {
     text-align: start;
     justify-content: start;
     position: relative;
+    gap: 20px;
     left: 27px;
     
 }
@@ -107,8 +108,16 @@ button {
     display: flex;
     justify-content: start;
 }
+.clear-btn{
+    background-color: rgb(231, 29, 29);
+    color: white;
+}
+.clear-btn:hover {
+    background-color: red;
+    color: white;
+}
 
-button:hover {
+.calc-btn:hover {
     background: rgb(10, 85, 72);
 }
 
@@ -121,4 +130,9 @@ button:hover {
     padding-left: 30px;
     top: 400px;
     color: rgb(10, 85, 72);
+}
+.error{
+    color: rgb(209, 14, 14);
+    font-size: medium;
+    font-style: italic;
 }

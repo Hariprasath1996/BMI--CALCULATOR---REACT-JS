@@ -2,15 +2,20 @@ import { useState } from "react";
 
 const App = () => {
   // State variables created here 
-  const [height, setHeight] = useState()
-  const [weight, setWeight] = useState()
+  const [height, setHeight] = useState("")
+  const [weight, setWeight] = useState("")
   const [bmi, setBmi] = useState(null)
   const [bmiStatus, setBmiStatus] = useState("")
+  // create Error message
+  const[errorMessage,setErrorMessage]=useState("")
 
   // create a component here exactly what we gonna do
 
   const calculateBmi = () => {
-    if (height && weight) {
+    // create regular expression for height and weight...
+    const isValidHeight = /^\d+$/.test(height);
+    const isValidWeight = /^\d+$/.test(weight);
+    if (isValidHeight && isValidWeight) {
       const heightInMeters = height / 100;
       const bmiValue = weight / (heightInMeters * heightInMeters)
       setBmi(bmiValue.toFixed(2));
@@ -23,13 +28,20 @@ const App = () => {
       } else {
         setBmiStatus("Obese")
       };
-
+      // setErrorMessage("")
     } else {
       setBmi(null);
-      bmiStatus("")
+      setBmiStatus("")
+      setErrorMessage("Please Enter Valid Numeric Values For height And Weight...")
     }
   }
-
+const clearAll =()=>{
+  setHeight("");
+  setWeight("");
+  setBmi(null);
+  setBmiStatus("")
+  setErrorMessage("")
+}
   return (
     <>
       <div className="Container">
@@ -38,8 +50,8 @@ const App = () => {
           <img className="bg-img" src="./src/assets/bmi.png" alt="" />
         </div>
         <div className="section-2">
-          <h1>BMI CALCULATOR</h1>
-          <p className="error">Please Enter Valid Numeric Value height and Weight.</p>
+          <h1>BMI_CALCULATOR</h1>
+        {errorMessage &&  <p className="error">{errorMessage}</p>}
           <div className="height-box">
             <div className="box-1" >
               <label htmlFor="height">Height (cm) :</label>
@@ -57,8 +69,11 @@ const App = () => {
             </div>
           </div>
           <div className="btn">
-            <button onClick={calculateBmi} >
+            <button className="calc-btn" onClick={calculateBmi} >
               Calculate BMI
+            </button>
+            <button className="clear-btn" onClick={clearAll}>
+              clear
             </button>
           </div>
           {bmi !== null && (<div className="footer">
